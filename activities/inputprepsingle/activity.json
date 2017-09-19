@@ -1,0 +1,19 @@
+{
+  "name": "inputprepsingle",
+  "version": "0.0.1",
+  "type": "flogo:activity",
+  "description": "Assembles current + 10 lagged x,y,z accelerometer observations for scoring preparation. Output single encoded string with predictors.",
+  "author": "Your Name <you.name@example.org>",
+  "inputs":[
+    {
+      "name": "data",
+      "type": "[][]float64"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "predictors",
+      "type": "string"
+    }
+  ]
+}
