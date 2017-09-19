@@ -42,11 +42,5 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		i++
 	}
 	context.SetOutput("predictors", outStr)
-	// for k, v := range m {
-	// 	fmt.Println(k)
-
-	// 	context.SetOutput(k, v)
-	// }
-
 	return true, nil
 }
