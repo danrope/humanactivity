@@ -4,6 +4,7 @@
   "type": "flogo:activity",
   "description": "Assembles current + 10 lagged x,y,z accelerometer observations for scoring preparation.  Outputs done for each predictor.",
   "author": "Your Name <you.name@example.org>",
+  "ref" : "github.com/danrope/humanactivity/activities/inputprepmulti",  
   "inputs":[
     {
       "name": "data",
