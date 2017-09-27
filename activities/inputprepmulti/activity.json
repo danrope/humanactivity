@@ -7,7 +7,7 @@
   "inputs":[
     {
       "name": "data",
-      "type": "[][]float64"
+      "type": "any"
     }
   ],
   "outputs":[
