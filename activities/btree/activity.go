@@ -8,7 +8,7 @@ package btree
 //#define STRING_SET(a,b)   strcpy(a,b)
 //
 //
-//void _BTrees_Prediction_T22_21_12(
+//void _BTrees_Prediction_T4_37_20(
 //      const double * _x__,
 //      const double * _y__,
 //      const double * _z__,
@@ -37343,7 +37343,7 @@ func (a *ModelActivity) Eval(context activity.Context) (done bool, err error) {
 	var i33 = C.double(float64(context.GetInput("_z10__").(float64)))
 
 	var result C.char
-	C._BTrees_Prediction_T22_21_12(&i1, &i2, &i3, &i4, &i5, &i6, &i7, &i8, &i9, &i10, &i11, &i12, &i13, &i14, &i15, &i16, &i17, &i18, &i19, &i20, &i21, &i22, &i23, &i24, &i25, &i26, &i27, &i28, &i29, &i30, &i31, &i32, &i33, &result)
+	C._BTrees_Prediction_T4_37_20(&i1, &i2, &i3, &i4, &i5, &i6, &i7, &i8, &i9, &i10, &i11, &i12, &i13, &i14, &i15, &i16, &i17, &i18, &i19, &i20, &i21, &i22, &i23, &i24, &i25, &i26, &i27, &i28, &i29, &i30, &i31, &i32, &i33, &result)
 
 	context.SetOutput("result", C.GoString(&result))
 
