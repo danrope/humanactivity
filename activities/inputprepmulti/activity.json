@@ -7,7 +7,8 @@
   "ref" : "github.com/danrope/humanactivity/activities/inputprepmulti",  
   "inputs":[
     {
-      "name": "data",
+	  "name": "data",
+	  "required": true,
       "type": "any"
     }
   ],
