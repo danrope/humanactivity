@@ -1,6 +1,8 @@
 package inputprepmulti
 
 import (
+	"encoding/json"
+
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/danrope/humanactivity/util"
 )
@@ -24,9 +26,17 @@ func (a *MyActivity) Metadata() *activity.Metadata {
 func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 
 	// Get the activity data from the context
-	data := context.GetInput("data").([][]float64)
+	data := context.GetInput("data")
+	var tmpData [][]float64
+	switch data.(type) {
+	case []string:
+		json.Unmarshal([]byte(data.([]string)[0]), &tmpData)
 
-	m := util.MakeLags(data, "_", "__")
+	default:
+		tmpData = data.([][]float64)
+	}
+
+	m := util.MakeLags(tmpData, "_", "__")
 
 	for k, v := range m {
 		context.SetOutput(k, v)

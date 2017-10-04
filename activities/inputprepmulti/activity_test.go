@@ -55,5 +55,5 @@ func TestEval(t *testing.T) {
 	act.Eval(tc)
 
 	z10 := tc.GetOutput("_z10__")
-	assert.Equal(t, z10, 2.7240696, "Output should contain expected z10 result")
+	assert.Equal(t, z10, 8.067265, "Output should contain expected z10 result")
 }

@@ -58,5 +58,5 @@ func TestEval(t *testing.T) {
 
 	//check result attr
 	predictors := tc.GetOutput("predictors").(string)
-	assert.True(t, strings.Contains(predictors, "z10:2.7240696"), "Predictors should contain expected z10 result")
+	assert.True(t, strings.Contains(predictors, "z10:8.067265"), "Predictors should contain expected z10 result")
 }

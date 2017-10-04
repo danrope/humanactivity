@@ -1,13 +1,15 @@
 package btree
 
 import (
+	"fmt"
 	"io/ioutil"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 
 	"github.com/TIBCOSoftware/flogo-contrib/action/flow/test"
 	"github.com/TIBCOSoftware/flogo-lib/core/activity"
 	"github.com/danrope/humanactivity/util"
-	"github.com/stretchr/testify/assert"
 )
 
 var activityMetadata *activity.Metadata
@@ -50,15 +52,26 @@ func TestEval(t *testing.T) {
 	tc := test.NewTestActivityContext(getActivityMetadata())
 
 	data := util.ReadCSV()
-	m := util.MakeLags(data[0:11], "_", "__")
+	countJog := 0
+	trials := 100
 
-	for k, v := range m {
-		tc.SetInput(k, v)
+	for i := 100; i < 100+trials; i++ {
+		m := util.MakeLags(data[i:i+11], "_", "__")
+
+		for k, v := range m {
+			tc.SetInput(k, v)
+		}
+		act.Eval(tc)
+
+		result := tc.GetOutput("result")
+
+		if result == "Jogging" {
+			countJog++
+		}
+
 	}
-	act.Eval(tc)
 
-	result := tc.GetOutput("result")
-
-	assert.Equal(t, result, "Jogging", "Prediction was incorrect")
+	fmt.Println(float64(countJog) / float64(trials))
+	assert.True(t, float64(countJog)/float64(trials) >= 0.95, "Not enough Jogging predictions")
 
 }
