@@ -1,7 +1,6 @@
 package btree
 
 import (
-	"fmt"
 	"io/ioutil"
 	"testing"
 
@@ -71,7 +70,6 @@ func TestEval(t *testing.T) {
 
 	}
 
-	fmt.Println(float64(countJog) / float64(trials))
 	assert.True(t, float64(countJog)/float64(trials) >= 0.95, "Not enough Jogging predictions")
 
 }
