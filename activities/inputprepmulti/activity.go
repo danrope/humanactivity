@@ -31,6 +31,8 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 	switch data.(type) {
 	case []string:
 		json.Unmarshal([]byte(data.([]string)[0]), &tmpData)
+	case string:
+		json.Unmarshal([]byte(data.(string)), &tmpData)
 
 	default:
 		tmpData = data.([][]float64)
