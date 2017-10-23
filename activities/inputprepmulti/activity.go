@@ -33,6 +33,13 @@ func (a *MyActivity) Eval(context activity.Context) (done bool, err error) {
 		json.Unmarshal([]byte(data.([]string)[0]), &tmpData)
 	case string:
 		json.Unmarshal([]byte(data.(string)), &tmpData)
+	case []interface{}:
+		t1 := data.([]interface{})[0]
+		var t2 []float64
+		for flv := range t1.([]interface{}) {
+			t2 = append(t2, float64(flv))
+		}
+		tmpData = [][]float64{t2}
 
 	default:
 		tmpData = data.([][]float64)
